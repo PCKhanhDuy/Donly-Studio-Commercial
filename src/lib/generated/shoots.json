@@ -1,0 +1,772 @@
+{
+  "shoots": [
+    {
+      "clientSlug": "ameliee-official",
+      "shootSlug": "calista",
+      "clientFolder": "ameliee_official",
+      "shootFolder": "Calista",
+      "coverIndex": 0,
+      "images": [
+        {
+          "src": "/project/ameliee_official/Calista/A-00.jpg",
+          "file": "A-00.jpg",
+          "width": 1800,
+          "height": 2400
+        },
+        {
+          "src": "/project/ameliee_official/Calista/A-01.jpg",
+          "file": "A-01.jpg",
+          "width": 1800,
+          "height": 2400
+        },
+        {
+          "src": "/project/ameliee_official/Calista/A-02.jpg",
+          "file": "A-02.jpg",
+          "width": 1800,
+          "height": 2400
+        },
+        {
+          "src": "/project/ameliee_official/Calista/A-03.jpg",
+          "file": "A-03.jpg",
+          "width": 3072,
+          "height": 4096
+        },
+        {
+          "src": "/project/ameliee_official/Calista/A-04.jpg",
+          "file": "A-04.jpg",
+          "width": 1800,
+          "height": 2400
+        }
+      ]
+    },
+    {
+      "clientSlug": "ameliee-official",
+      "shootSlug": "emberly",
+      "clientFolder": "ameliee_official",
+      "shootFolder": "Emberly",
+      "coverIndex": 0,
+      "images": [
+        {
+          "src": "/project/ameliee_official/Emberly/A-00.jpg",
+          "file": "A-00.jpg",
+          "width": 1800,
+          "height": 2400
+        },
+        {
+          "src": "/project/ameliee_official/Emberly/A-01.jpg",
+          "file": "A-01.jpg",
+          "width": 3072,
+          "height": 4096
+        },
+        {
+          "src": "/project/ameliee_official/Emberly/A-02.jpg",
+          "file": "A-02.jpg",
+          "width": 3072,
+          "height": 4096
+        },
+        {
+          "src": "/project/ameliee_official/Emberly/A-03.jpg",
+          "file": "A-03.jpg",
+          "width": 3072,
+          "height": 4096
+        },
+        {
+          "src": "/project/ameliee_official/Emberly/A-04.jpg",
+          "file": "A-04.jpg",
+          "width": 3072,
+          "height": 4096
+        }
+      ]
+    },
+    {
+      "clientSlug": "ameliee-official",
+      "shootSlug": "orion",
+      "clientFolder": "ameliee_official",
+      "shootFolder": "Orion",
+      "coverIndex": 0,
+      "images": [
+        {
+          "src": "/project/ameliee_official/Orion/A-00.jpg",
+          "file": "A-00.jpg",
+          "width": 1800,
+          "height": 2400
+        },
+        {
+          "src": "/project/ameliee_official/Orion/A-01.jpg",
+          "file": "A-01.jpg",
+          "width": 3072,
+          "height": 4096
+        },
+        {
+          "src": "/project/ameliee_official/Orion/A-02.jpg",
+          "file": "A-02.jpg",
+          "width": 3072,
+          "height": 4096
+        },
+        {
+          "src": "/project/ameliee_official/Orion/A-03.jpg",
+          "file": "A-03.jpg",
+          "width": 3072,
+          "height": 4096
+        },
+        {
+          "src": "/project/ameliee_official/Orion/A-04.jpg",
+          "file": "A-04.jpg",
+          "width": 3072,
+          "height": 4096
+        }
+      ]
+    },
+    {
+      "clientSlug": "dirtycoins",
+      "shootSlug": "dirtycoins-soccer",
+      "clientFolder": "dirtycoins",
+      "shootFolder": "DirtyCoins Soccer",
+      "coverIndex": 0,
+      "images": [
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/A-00.jpg",
+          "file": "A-00.jpg",
+          "width": 1800,
+          "height": 2400
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/A-01.jpg",
+          "file": "A-01.jpg",
+          "width": 1728,
+          "height": 2301
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/A-02.jpg",
+          "file": "A-02.jpg",
+          "width": 1728,
+          "height": 2301
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/B-01.jpg",
+          "file": "B-01.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/B-02.jpg",
+          "file": "B-02.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/B-03.jpg",
+          "file": "B-03.jpg",
+          "width": 1536,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/B-04.jpg",
+          "file": "B-04.jpg",
+          "width": 1455,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/C-01.jpg",
+          "file": "C-01.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/C-02.jpg",
+          "file": "C-02.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/D-01.jpg",
+          "file": "D-01.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/D-02.jpg",
+          "file": "D-02.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/D-03.jpg",
+          "file": "D-03.jpg",
+          "width": 1518,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/D-04.jpg",
+          "file": "D-04.jpg",
+          "width": 1522,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/D-05.jpg",
+          "file": "D-05.jpg",
+          "width": 1536,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/D-06.jpg",
+          "file": "D-06.jpg",
+          "width": 1446,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/E-01.jpg",
+          "file": "E-01.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/E-02.jpg",
+          "file": "E-02.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/E-03.jpg",
+          "file": "E-03.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/E-04.jpg",
+          "file": "E-04.jpg",
+          "width": 1321,
+          "height": 1651
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/E-05.jpg",
+          "file": "E-05.jpg",
+          "width": 1593,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/E-06.jpg",
+          "file": "E-06.jpg",
+          "width": 1536,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/E-07.jpg",
+          "file": "E-07.jpg",
+          "width": 1536,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/DirtyCoins%20Soccer/E-08.jpg",
+          "file": "E-08.jpg",
+          "width": 1536,
+          "height": 2048
+        }
+      ]
+    },
+    {
+      "clientSlug": "dirtycoins",
+      "shootSlug": "the-rolling-stones-01",
+      "clientFolder": "dirtycoins",
+      "shootFolder": "The Rolling Stones 01",
+      "coverIndex": 0,
+      "images": [
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2001/A-00.jpg",
+          "file": "A-00.jpg",
+          "width": 1800,
+          "height": 2400
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2001/A-02.jpg",
+          "file": "A-02.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2001/A-03.jpg",
+          "file": "A-03.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2001/A-04.jpg",
+          "file": "A-04.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2001/A-05.jpg",
+          "file": "A-05.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2001/A-06.jpg",
+          "file": "A-06.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2001/A-07.jpg",
+          "file": "A-07.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2001/A-08.jpg",
+          "file": "A-08.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2001/A-09.jpg",
+          "file": "A-09.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2001/A-10.jpg",
+          "file": "A-10.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2001/A-11.jpg",
+          "file": "A-11.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2001/A-12.jpg",
+          "file": "A-12.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2001/A-13.jpg",
+          "file": "A-13.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2001/A-14.jpg",
+          "file": "A-14.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2001/A-15.jpg",
+          "file": "A-15.jpg",
+          "width": 1638,
+          "height": 2048
+        }
+      ]
+    },
+    {
+      "clientSlug": "dirtycoins",
+      "shootSlug": "the-rolling-stones-02",
+      "clientFolder": "dirtycoins",
+      "shootFolder": "The Rolling Stones 02",
+      "coverIndex": 0,
+      "images": [
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2002/A-00.jpg",
+          "file": "A-00.jpg",
+          "width": 1800,
+          "height": 2400
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2002/A-02.jpg",
+          "file": "A-02.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2002/A-03.jpg",
+          "file": "A-03.jpg",
+          "width": 1462,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2002/A-04.jpg",
+          "file": "A-04.jpg",
+          "width": 1443,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2002/A-05.jpg",
+          "file": "A-05.jpg",
+          "width": 1526,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2002/A-06.jpg",
+          "file": "A-06.jpg",
+          "width": 1636,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2002/A-07.jpg",
+          "file": "A-07.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2002/A-08.jpg",
+          "file": "A-08.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2002/A-09.jpg",
+          "file": "A-09.jpg",
+          "width": 1638,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2002/A-10.jpg",
+          "file": "A-10.jpg",
+          "width": 1536,
+          "height": 2048
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%2002/A-11.jpg",
+          "file": "A-11.jpg",
+          "width": 1536,
+          "height": 2048
+        }
+      ]
+    },
+    {
+      "clientSlug": "dirtycoins",
+      "shootSlug": "the-rolling-stones-summer",
+      "clientFolder": "dirtycoins",
+      "shootFolder": "The Rolling Stones Summer",
+      "coverIndex": 0,
+      "images": [
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%20Summer/A-00.jpg",
+          "file": "A-00.jpg",
+          "width": 1800,
+          "height": 2400
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%20Summer/A-01.jpg",
+          "file": "A-01.jpg",
+          "width": 1856,
+          "height": 2305
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%20Summer/A-02.jpg",
+          "file": "A-02.jpg",
+          "width": 1856,
+          "height": 2305
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%20Summer/A-03.jpg",
+          "file": "A-03.jpg",
+          "width": 1856,
+          "height": 2305
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%20Summer/A-04.jpg",
+          "file": "A-04.jpg",
+          "width": 1856,
+          "height": 2305
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%20Summer/A-05.jpg",
+          "file": "A-05.jpg",
+          "width": 1856,
+          "height": 2305
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%20Summer/A-06.jpg",
+          "file": "A-06.jpg",
+          "width": 1856,
+          "height": 2305
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%20Summer/A-07.jpg",
+          "file": "A-07.jpg",
+          "width": 1856,
+          "height": 2305
+        },
+        {
+          "src": "/project/dirtycoins/The%20Rolling%20Stones%20Summer/A-08.jpg",
+          "file": "A-08.jpg",
+          "width": 1856,
+          "height": 2305
+        }
+      ]
+    },
+    {
+      "clientSlug": "fiftysix",
+      "shootSlug": "bunny",
+      "clientFolder": "fiftysix",
+      "shootFolder": "Bunny",
+      "coverIndex": 0,
+      "images": [
+        {
+          "src": "/project/fiftysix/Bunny/A-00.jpg",
+          "file": "A-00.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Bunny/A-01.jpg",
+          "file": "A-01.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Bunny/A-02.jpg",
+          "file": "A-02.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Bunny/A-03.jpg",
+          "file": "A-03.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Bunny/A-04.jpg",
+          "file": "A-04.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Bunny/A-05.jpg",
+          "file": "A-05.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Bunny/A-06.jpg",
+          "file": "A-06.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Bunny/A-07.jpg",
+          "file": "A-07.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Bunny/A-08.jpg",
+          "file": "A-08.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Bunny/A-09.jpg",
+          "file": "A-09.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Bunny/A-10.jpg",
+          "file": "A-10.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Bunny/A-11.jpg",
+          "file": "A-11.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Bunny/A-12.jpg",
+          "file": "A-12.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Bunny/A-13.jpg",
+          "file": "A-13.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Bunny/A-14.jpg",
+          "file": "A-14.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Bunny/A-15.jpg",
+          "file": "A-15.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Bunny/A-16.jpg",
+          "file": "A-16.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Bunny/A-17.jpg",
+          "file": "A-17.jpg",
+          "width": 2000,
+          "height": 2500
+        }
+      ]
+    },
+    {
+      "clientSlug": "fiftysix",
+      "shootSlug": "racing",
+      "clientFolder": "fiftysix",
+      "shootFolder": "Racing",
+      "coverIndex": 0,
+      "images": [
+        {
+          "src": "/project/fiftysix/Racing/A-00.jpg",
+          "file": "A-00.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Racing/A-01.jpg",
+          "file": "A-01.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Racing/A-02.jpg",
+          "file": "A-02.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Racing/A-03.jpg",
+          "file": "A-03.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Racing/A-04.jpg",
+          "file": "A-04.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Racing/A-05.jpg",
+          "file": "A-05.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Racing/A-06.jpg",
+          "file": "A-06.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Racing/A-07.jpg",
+          "file": "A-07.jpg",
+          "width": 2000,
+          "height": 2500
+        },
+        {
+          "src": "/project/fiftysix/Racing/A-08.jpg",
+          "file": "A-08.jpg",
+          "width": 2000,
+          "height": 2500
+        }
+      ]
+    },
+    {
+      "clientSlug": "stressmama",
+      "shootSlug": "summer26-drop-01",
+      "clientFolder": "stressmama",
+      "shootFolder": "summer26-drop-01",
+      "coverIndex": 0,
+      "images": [
+        {
+          "src": "/project/stressmama/summer26-drop-01/A-00.jpg",
+          "file": "A-00.jpg",
+          "width": 1800,
+          "height": 2400
+        },
+        {
+          "src": "/project/stressmama/summer26-drop-01/A-01.jpg",
+          "file": "A-01.jpg",
+          "width": 1389,
+          "height": 1736
+        },
+        {
+          "src": "/project/stressmama/summer26-drop-01/A-02.jpg",
+          "file": "A-02.jpg",
+          "width": 1389,
+          "height": 1736
+        },
+        {
+          "src": "/project/stressmama/summer26-drop-01/A-04.jpg",
+          "file": "A-04.jpg",
+          "width": 1389,
+          "height": 1736
+        },
+        {
+          "src": "/project/stressmama/summer26-drop-01/A-05.jpg",
+          "file": "A-05.jpg",
+          "width": 1389,
+          "height": 1736
+        },
+        {
+          "src": "/project/stressmama/summer26-drop-01/A-06.jpg",
+          "file": "A-06.jpg",
+          "width": 1389,
+          "height": 1736
+        },
+        {
+          "src": "/project/stressmama/summer26-drop-01/A-07.jpg",
+          "file": "A-07.jpg",
+          "width": 1389,
+          "height": 1736
+        },
+        {
+          "src": "/project/stressmama/summer26-drop-01/A-08.jpg",
+          "file": "A-08.jpg",
+          "width": 1389,
+          "height": 1736
+        },
+        {
+          "src": "/project/stressmama/summer26-drop-01/A-09.jpg",
+          "file": "A-09.jpg",
+          "width": 1389,
+          "height": 1736
+        },
+        {
+          "src": "/project/stressmama/summer26-drop-01/A-10.jpg",
+          "file": "A-10.jpg",
+          "width": 1389,
+          "height": 1736
+        },
+        {
+          "src": "/project/stressmama/summer26-drop-01/A-11.jpg",
+          "file": "A-11.jpg",
+          "width": 1389,
+          "height": 1736
+        },
+        {
+          "src": "/project/stressmama/summer26-drop-01/A-12.jpg",
+          "file": "A-12.jpg",
+          "width": 1389,
+          "height": 1736
+        },
+        {
+          "src": "/project/stressmama/summer26-drop-01/A-13.jpg",
+          "file": "A-13.jpg",
+          "width": 1389,
+          "height": 1736
+        }
+      ]
+    }
+  ]
+}

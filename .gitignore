@@ -24,6 +24,11 @@
 .DS_Store
 *.pem
 
+# Tài liệu nội bộ — repo này để public nên không đẩy lên.
+# File nằm ở thư mục gốc (không phải trong public/) nên site không hề phục vụ nó;
+# dòng dưới chỉ để nó không lọt vào lịch sử git.
+DONLY_Brand_Identity_Guideline.pdf
+
 # debug
 npm-debug.log*
 yarn-debug.log*
