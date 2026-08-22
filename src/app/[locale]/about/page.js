@@ -143,7 +143,7 @@ export default async function AboutPage({ params }) {
             title={dict.about.principlesTitle}
             emphasis
           />
-
+  
           <Stagger
             as="ol"
             gap={0.08}

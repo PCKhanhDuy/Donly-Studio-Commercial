@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useLenis } from "lenis/react";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 import Logo from "@/components/logo";
 import LanguageSwitch from "@/components/language-switch";
@@ -16,12 +17,25 @@ import { nav, site } from "@/lib/site";
 
   Ba trạng thái:
     · overlay  — trên trang có hero tối (trang chủ, case study), header trong suốt, chữ trắng tinh
-    · solid    — sau khi cuộn quá 24px, nền trắng + đường kẻ mảnh
+    · solid    — sau khi cuộn quá 24px, nền tối mờ + đường kẻ mảnh
     · ẩn       — khi người dùng cuộn XUỐNG quá 240px, header trượt lên khỏi màn hình để trả lại
                  toàn bộ chiều cao cho hình ảnh; cuộn NGƯỢC lên là nó quay lại ngay
 
   Trạng thái ẩn/hiện được tính trong callback của motion value (không phải trong effect),
   nên không tạo vòng render thừa.
+
+  LỚP PHỦ MENU MOBILE NẰM NGOÀI <header>, KHÔNG PHẢI CON CỦA NÓ.
+
+  Đây không phải chuyện bố cục cho đẹp mà là bắt buộc. Ở trạng thái solid, header mang
+  `backdrop-blur-md`, tức `backdrop-filter: blur()`. Theo chuẩn CSS, phần tử có
+  backdrop-filter khác `none` trở thành KHUNG THAM CHIẾU cho mọi con `position: fixed`
+  — giống hệt `transform`, mà header cũng có transform khi trượt ẩn/hiện.
+
+  Hệ quả khi lớp phủ còn nằm bên trong: `fixed inset-0` của nó không tính theo màn hình
+  nữa mà tính theo cái header cao 64px, nên menu bị cắt cụt còn đúng một dải trên cùng.
+  Ở đầu trang chủ header trong suốt, chưa có backdrop-filter, nên menu vẫn đúng — lỗi
+  chỉ lộ ra sau khi cuộn xuống. Tách ra thành phần tử anh em thì nó không còn tổ tiên
+  nào tạo khung tham chiếu, `fixed` bám thẳng vào màn hình.
 */
 
 /*
@@ -38,6 +52,7 @@ function isOverlayRoute(pathname, locale) {
 export default function SiteHeader({ locale, dict }) {
   const pathname = usePathname();
   const reduced = usePrefersReducedMotion();
+  const lenis = useLenis();
 
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -54,15 +69,30 @@ export default function SiteHeader({ locale, dict }) {
 
   const overlay = isOverlayRoute(pathname, locale) && !scrolled;
 
-  // Khoá cuộn nền khi menu mobile mở
+  /*
+    Khoá cuộn nền khi menu mobile mở.
+
+    Phải gọi lenis.stop(), không dùng được `body.style.overflow = "hidden"`.
+    Trang cuộn bằng Lenis: nó chủ động gọi window.scrollTo, mà overflow đặt trên <body>
+    thì không cản được thao tác đó — mở menu ra nền vẫn trôi phía sau. lenis.stop() gắn
+    class `lenis-stopped` lên <html> (overflow: hidden), chặn cả cuộn chuột lẫn cuộn chạm.
+
+    Vẫn giữ nhánh dự phòng đặt overflow cho trường hợp Lenis chưa kịp khởi tạo.
+  */
   useEffect(() => {
     if (!open) return;
+
+    if (lenis) {
+      lenis.stop();
+      return () => lenis.start();
+    }
+
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = previous;
     };
-  }, [open]);
+  }, [open, lenis]);
 
   useEffect(() => {
     if (!open) return;
@@ -74,81 +104,87 @@ export default function SiteHeader({ locale, dict }) {
   }, [open]);
 
   return (
-    <motion.header
-      initial={false}
-      animate={{ y: hidden && !reduced ? "-100%" : "0%" }}
-      transition={{ duration: 0.5, ease: EASE }}
-      className={`fixed inset-x-0 top-0 z-50 text-paper transition-colors duration-500 ease-soft ${
-        overlay ? "bg-transparent" : "border-b border-rule bg-surface/85 backdrop-blur-md"
-      }`}
-    >
-      {/*
-        Khi header nằm đè lên ảnh, một lớp chuyển sắc mảnh từ trên xuống giữ cho menu
-        luôn đọc được — kể cả trên ảnh nền sáng như tường bê tông hay trời trắng.
-        Không có nó thì chữ trắng chìm hẳn vào ảnh.
-      */}
-      {overlay ? (
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-linear-to-b from-ink/55 to-transparent"
-        />
-      ) : null}
-
-      <div className="relative mx-auto flex h-16 max-w-frame items-center justify-between px-5 md:h-20 md:px-10 lg:px-16 xl:px-24">
-        <Link
-          href={`/${locale}`}
-          aria-label={`${site.fullName} — ${dict.common.homeAria}`}
-          className="shrink-0"
-        >
-          <Logo
-            shape="full"
-            tone="paper"
-            className="h-4 w-auto md:h-5"
-            preload
+    <>
+      <motion.header
+        initial={false}
+        animate={{ y: hidden && !reduced ? "-100%" : "0%" }}
+        transition={{ duration: 0.5, ease: EASE }}
+        className={`fixed inset-x-0 top-0 z-50 text-paper transition-colors duration-500 ease-soft ${
+          overlay ? "bg-transparent" : "border-b border-rule bg-surface/85 backdrop-blur-md"
+        }`}
+      >
+        {/*
+          Khi header nằm đè lên ảnh, một lớp chuyển sắc mảnh từ trên xuống giữ cho menu
+          luôn đọc được — kể cả trên ảnh nền sáng như tường bê tông hay trời trắng.
+          Không có nó thì chữ trắng chìm hẳn vào ảnh.
+        */}
+        {overlay ? (
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-linear-to-b from-ink/55 to-transparent"
           />
-        </Link>
+        ) : null}
 
-        <div className="hidden items-center gap-10 md:flex">
-          <nav aria-label="Main" className="flex items-center gap-10">
-            {nav.map((item) => {
-              const href = `/${locale}${item.href}`;
-              const active = pathname === href || pathname.startsWith(`${href}/`);
+        <div className="relative mx-auto flex h-16 max-w-frame items-center justify-between px-5 md:h-20 md:px-10 lg:px-16 xl:px-24">
+          <Link
+            href={`/${locale}`}
+            aria-label={`${site.fullName} — ${dict.common.homeAria}`}
+            className="shrink-0"
+          >
+            <Logo
+              shape="full"
+              tone="paper"
+              className="h-4 w-auto md:h-5"
+              preload
+            />
+          </Link>
 
-              return (
-                <Link
-                  key={item.href}
-                  href={href}
-                  aria-current={active ? "page" : undefined}
-                  className={`font-ui text-sm font-medium tracking-[0.14em] uppercase ${
-                    active ? "border-b border-current pb-1" : "underline-draw"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
+          <div className="hidden items-center gap-10 md:flex">
+            <nav aria-label="Main" className="flex items-center gap-10">
+              {nav.map((item) => {
+                const href = `/${locale}${item.href}`;
+                const active = pathname === href || pathname.startsWith(`${href}/`);
 
-          <div className="border-l border-paper/25 pl-8">
+                return (
+                  <Link
+                    key={item.href}
+                    href={href}
+                    aria-current={active ? "page" : undefined}
+                    className={`font-ui text-sm font-medium tracking-[0.14em] uppercase ${
+                      active ? "border-b border-current pb-1" : "underline-draw"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </nav>
+
+            <div className="border-l border-paper/25 pl-8">
+              <LanguageSwitch locale={locale} tone="paper" />
+            </div>
+          </div>
+
+          <div className="flex items-center gap-5 md:hidden">
             <LanguageSwitch locale={locale} tone="paper" />
+            <button
+              type="button"
+              onClick={() => setOpen(true)}
+              aria-label={dict.common.openMenu}
+              aria-expanded={open}
+              className="-mr-2 p-2"
+            >
+              <Menu />
+            </button>
           </div>
         </div>
+      </motion.header>
 
-        <div className="flex items-center gap-5 md:hidden">
-          <LanguageSwitch locale={locale} tone="paper" />
-          <button
-            type="button"
-            onClick={() => setOpen(true)}
-            aria-label={dict.common.openMenu}
-            aria-expanded={open}
-            className="-mr-2 p-2"
-          >
-            <Menu />
-          </button>
-        </div>
-      </div>
-
-      {/* Menu mobile — rèm đen phủ từ trên xuống, các mục lần lượt trồi lên */}
+      {/*
+        Menu mobile — rèm đen phủ từ trên xuống, các mục lần lượt trồi lên.
+        Đứng NGANG HÀNG với header, xem chú thích đầu file.
+        z cao hơn header một nấc để phủ luôn cả thanh điều hướng.
+      */}
       <AnimatePresence>
         {open ? (
           <motion.div
@@ -157,9 +193,9 @@ export default function SiteHeader({ locale, dict }) {
             animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
             exit={reduced ? undefined : { clipPath: "inset(0% 0% 100% 0%)" }}
             transition={{ duration: 0.6, ease: EASE }}
-            className="fixed inset-0 z-50 flex flex-col bg-surface text-paper md:hidden"
+            className="fixed inset-0 z-[60] flex flex-col bg-surface text-paper md:hidden"
           >
-            <div className="flex h-16 items-center justify-between px-5">
+            <div className="flex h-16 shrink-0 items-center justify-between px-5">
               <Logo shape="full" tone="paper" className="h-4 w-auto" />
               <button
                 type="button"
@@ -208,7 +244,7 @@ export default function SiteHeader({ locale, dict }) {
               initial={reduced ? false : { opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4, ease: EASE_SOFT }}
-              className="border-t border-paper/15 px-5 py-8"
+              className="shrink-0 border-t border-paper/15 px-5 py-8"
             >
               <div className="flex items-center justify-between gap-6">
                 <p className="label text-paper/50">{dict.common.contact}</p>
@@ -224,6 +260,6 @@ export default function SiteHeader({ locale, dict }) {
           </motion.div>
         ) : null}
       </AnimatePresence>
-    </motion.header>
+    </>
   );
 }
