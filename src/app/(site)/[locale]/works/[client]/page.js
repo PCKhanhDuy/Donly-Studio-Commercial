@@ -9,7 +9,8 @@ import { ArrowLeft, ArrowRight } from "@/components/icons";
 import { alternatesFor, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { localize } from "@/i18n/localize";
-import { clients, getClient } from "@/lib/works";
+import { clients } from "@/lib/works";
+import { getLiveClient } from "@/lib/works-live";
 
 /*
   Trang KHÁCH HÀNG: liệt kê các collection mà studio đã chụp cho khách đó.
@@ -26,7 +27,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { locale, client: clientSlug } = await params;
   const dict = getDictionary(locale);
-  const raw = getClient(clientSlug);
+  const raw = await getLiveClient(clientSlug);
 
   if (!raw) return { title: dict.work.notFoundTitle };
 
@@ -46,7 +47,7 @@ export async function generateMetadata({ params }) {
 
 export default async function ClientPage({ params }) {
   const { locale, client: clientSlug } = await params;
-  const raw = getClient(clientSlug);
+  const raw = await getLiveClient(clientSlug);
 
   if (!raw) notFound();
 

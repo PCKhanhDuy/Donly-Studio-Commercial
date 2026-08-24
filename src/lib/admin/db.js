@@ -67,6 +67,21 @@ export async function ensureSchema() {
     `;
     await sql`CREATE INDEX IF NOT EXISTS bookings_created_idx ON bookings (created_at DESC)`;
     await sql`CREATE INDEX IF NOT EXISTS bookings_status_idx  ON bookings (status)`;
+
+    /*
+      Nội dung bạn sửa trong admin. Chỉ lưu phần ĐÃ SỬA, không chép cả kho nội dung
+      vào database: mặc định vẫn nằm trong file nguồn, bảng này phủ lên trên.
+
+      Nhờ vậy thả thư mục ảnh mới vào là bộ ảnh mới tự lên site với nội dung mặc định,
+      không cần đụng tới database; và xoá một dòng ở đây là nội dung quay về bản gốc.
+    */
+    await sql`
+      CREATE TABLE IF NOT EXISTS content_overrides (
+        key        text        PRIMARY KEY,
+        value      jsonb       NOT NULL,
+        updated_at timestamptz NOT NULL DEFAULT now()
+      )
+    `;
     return true;
   })();
 

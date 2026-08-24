@@ -5,7 +5,7 @@ import CtaBand from "@/components/cta-band";
 import { alternatesFor } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { localize } from "@/i18n/localize";
-import { allCollections, clients } from "@/lib/works";
+import { getLiveClients, getLiveCollections } from "@/lib/works-live";
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
@@ -21,6 +21,11 @@ export async function generateMetadata({ params }) {
 export default async function WorksPage({ params }) {
   const { locale } = await params;
   const dict = getDictionary(locale);
+  const [clients, allCollections] = await Promise.all([
+    getLiveClients(),
+    getLiveCollections(),
+  ]);
+
   const list = localize(clients, locale);
 
   return (

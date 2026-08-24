@@ -1,9 +1,8 @@
 import { redirect } from "next/navigation";
-import Logo from "@/components/logo";
 import { isSignedIn } from "@/lib/admin/auth";
 import { hasDatabase } from "@/lib/admin/db";
 import { countByStatus, listBookings } from "@/lib/admin/bookings";
-import { signOut } from "@/lib/actions/admin";
+import AdminShell from "@/components/admin/admin-shell";
 import BookingRow from "@/components/admin/booking-row";
 import SetupNotice from "@/components/admin/setup-notice";
 
@@ -32,23 +31,7 @@ export default async function AdminPage({ searchParams }) {
   const [bookings, counts] = await Promise.all([listBookings(tab), countByStatus()]);
 
   return (
-    <div className="mx-auto max-w-5xl px-5 py-10 md:px-8 md:py-14">
-      <header className="flex flex-wrap items-center justify-between gap-4 border-b border-rule pb-6">
-        <div>
-          <Logo shape="full" tone="paper" className="h-4 w-auto" preload />
-          <p className="label mt-3 text-fg-mute">Hộp thư đặt lịch</p>
-        </div>
-
-        <form action={signOut}>
-          <button
-            type="submit"
-            className="border border-rule px-4 py-2 font-ui text-sm text-fg/70 transition-colors duration-300 ease-soft hover:border-fg hover:text-fg"
-          >
-            Đăng xuất
-          </button>
-        </form>
-      </header>
-
+    <AdminShell current="/admin">
       {hasDatabase ? null : <SetupNotice className="mt-8" />}
 
       <nav className="mt-8 flex flex-wrap gap-x-6 gap-y-3 border-b border-rule pb-4">
@@ -80,6 +63,6 @@ export default async function AdminPage({ searchParams }) {
           ))}
         </ul>
       )}
-    </div>
+    </AdminShell>
   );
 }

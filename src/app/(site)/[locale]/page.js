@@ -13,7 +13,7 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import { localize } from "@/i18n/localize";
 import { site } from "@/lib/site";
 import { services, stats } from "@/lib/content";
-import { allCollections, clients } from "@/lib/works";
+import { getLiveClients, getLiveCollections } from "@/lib/works-live";
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
@@ -45,6 +45,12 @@ export async function generateMetadata({ params }) {
 export default async function HomePage({ params }) {
   const { locale } = await params;
   const dict = getDictionary(locale);
+
+  // Nội dung đã ghép: file nguồn làm gốc, phần sửa trong admin phủ lên
+  const [clients, allCollections] = await Promise.all([
+    getLiveClients(),
+    getLiveCollections(),
+  ]);
 
   const clientList = localize(clients, locale);
   const serviceList = localize(services, locale);

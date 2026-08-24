@@ -12,13 +12,12 @@ import { ArrowRight } from "@/components/icons";
 import { alternatesFor, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { localize } from "@/i18n/localize";
+import { allCollections, categoryLabel } from "@/lib/works";
 import {
-  allCollections,
-  categoryLabel,
-  getAdjacentCollection,
-  getClient,
-  getCollection,
-} from "@/lib/works";
+  getLiveAdjacent,
+  getLiveClient,
+  getLiveCollection,
+} from "@/lib/works-live";
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
@@ -33,7 +32,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { locale, client, collection: collectionSlug } = await params;
   const dict = getDictionary(locale);
-  const raw = getCollection(client, collectionSlug);
+  const raw = await getLiveCollection(client, collectionSlug);
 
   if (!raw) return { title: dict.work.notFoundTitle };
 
@@ -80,14 +79,18 @@ function buildGallery(blocks) {
 
 export default async function CollectionPage({ params }) {
   const { locale, client: clientSlug, collection: collectionSlug } = await params;
-  const rawCollection = getCollection(clientSlug, collectionSlug);
+  const [rawCollection, rawClient, rawNext] = await Promise.all([
+    getLiveCollection(clientSlug, collectionSlug),
+    getLiveClient(clientSlug),
+    getLiveAdjacent(clientSlug, collectionSlug),
+  ]);
 
   if (!rawCollection) notFound();
 
   const dict = getDictionary(locale);
   const collection = localize(rawCollection, locale);
-  const client = localize(getClient(clientSlug), locale);
-  const next = localize(getAdjacentCollection(clientSlug, collectionSlug), locale);
+  const client = localize(rawClient, locale);
+  const next = localize(rawNext, locale);
   const labels = localize(categoryLabel, locale);
   const { blocks, slides } = buildGallery(collection.blocks);
 
