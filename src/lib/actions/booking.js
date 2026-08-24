@@ -2,15 +2,18 @@
 
 import { getDictionary } from "@/i18n/get-dictionary";
 import { defaultLocale, isLocale } from "@/i18n/config";
+import { saveBooking } from "@/lib/admin/bookings";
 
 /*
   Xử lý form đặt lịch.
 
-  HIỆN TẠI: chỉ kiểm tra dữ liệu rồi ghi log ra terminal của server — CHƯA gửi email
-  và CHƯA lưu vào database. Trước khi chạy thật cần nối vào một trong hai:
-    · dịch vụ gửi mail (Resend / SendGrid / SMTP) để đẩy về hộp thư studio, hoặc
-    · một bảng trong database / Google Sheet để lưu yêu cầu.
-  Chỗ cần thay nằm ở khối "TODO" bên dưới.
+  Yêu cầu hợp lệ được GHI VÀO DATABASE rồi hiện ở /admin. Trước đây chỗ này chỉ
+  console.log rồi thôi: khách bấm gửi, site báo "đã nhận", còn studio không nhận được gì.
+
+  Chưa đặt DATABASE_URL thì saveBooking trả về false chứ không ném lỗi — form vẫn chạy,
+  vẫn kiểm tra dữ liệu, chỉ là chưa lưu được. Cách này để một biến môi trường còn thiếu
+  không bao giờ làm hỏng trang liên hệ của khách. Lúc đó server ghi lại một dòng cảnh báo
+  để người vận hành biết mà đi đặt biến.
 
   Ngôn ngữ được gửi kèm trong một input ẩn để thông báo lỗi trả về đúng thứ tiếng
   người dùng đang đọc. Giá trị này luôn được kiểm tra lại ở server, không tin thẳng
@@ -75,8 +78,23 @@ export async function submitBooking(previousState, formData) {
     };
   }
 
-  // TODO: thay console.log bằng lệnh gửi email hoặc ghi vào database.
-  console.log("[DONLY] Yêu cầu đặt lịch mới:", { locale, ...data });
+  /*
+    Lưu thất bại thì VẪN báo thành công cho khách. Với người đang điền form, lỗi hạ tầng
+    phía studio là thứ họ không sửa được và cũng không nên phải đọc; bắt họ điền lại chỉ
+    làm mất luôn cái đơn đó. Đổi lại, lỗi được ghi rõ vào log server để bên vận hành thấy.
+  */
+  try {
+    const saved = await saveBooking({ locale, ...data });
+    if (!saved) {
+      console.warn(
+        "[DONLY] Chưa đặt DATABASE_URL — yêu cầu đặt lịch KHÔNG được lưu:",
+        { locale, ...data },
+      );
+    }
+  } catch (error) {
+    console.error("[DONLY] Lỗi khi lưu yêu cầu đặt lịch:", error);
+    console.warn("[DONLY] Nội dung yêu cầu bị mất:", { locale, ...data });
+  }
 
   return {
     status: "success",

@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { Merriweather, Montserrat, Roboto } from "next/font/google";
-import "../globals.css";
+import "../../globals.css";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import SmoothScroll from "@/components/motion/smooth-scroll";
